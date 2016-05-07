@@ -1,7 +1,6 @@
 /* Settings
 /* ---------------------------------------------------------- */
 
-
 /* Navigation
 /* ---------------------------------------------------------- */
 
@@ -98,6 +97,107 @@
         border-radius: 0 4px 4px 0;
     }
     .gh-blognav-item input:focus {
+        position: relative;
+        z-index: 100;
+    }
+}
+
+/* Banner
+/* ---------------------------------------------------------- */
+
+.gh-blogbanner {
+    margin: 20px 0;
+}
+
+.gh-blogbanner-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 20px;
+}
+
+.gh-blogbanner-item--error {
+    margin-bottom: calc(1em + 10px);
+}
+
+.gh-blogbanner-item .response {
+    position: absolute;
+    margin-bottom: 0;
+}
+
+.gh-blogbanner-grab {
+    padding: 0 16px 0 0;
+    width: 16px;
+    color: #d1d1d1;
+    text-indent: -4px;
+    font-size: 16px;
+    cursor: move;
+}
+
+.gh-blogbanner-line {
+    display: flex;
+    width: 100%;
+}
+
+.gh-blogbanner-label {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.gh-blogbanner-url {
+    flex-grow: 3;
+}
+
+.gh-blogbanner-delete {
+    padding: 8px 0 8px 10px;
+    color: #c1c1c1;
+    font-size: 14px;
+    transition: color 0.1s linear;
+}
+
+.gh-blogbanner-delete:hover,
+.gh-blogbanner-delete:focus {
+    color: var(--red);
+}
+
+.gh-blogbanner-add {
+    margin-right: -2px;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+    background: var(--green);
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    line-height: 8px;
+    transition: background 0.1s linear;
+}
+
+.gh-blogbanner-add:hover,
+.gh-blogbanner-add:focus {
+    background: color(var(--green) lightness(-10%));
+}
+
+.gh-blogbanner-item:not(.gh-blogbanner-item--sortable) {
+    padding-left: calc(16px + 20px);
+    /* icon-grab + nav-item padding) */
+}
+
+/* Remove space between inputs on smaller screens */
+@media (max-width: 800px) {
+    .gh-blogbanner-label {
+        margin-right: -1px;
+    }
+    .gh-blogbanner-label input {
+        border-right-color: #eaeaea;
+        border-radius: 4px 0 0 4px;
+    }
+    .gh-blogbanner-url input {
+        border-left-color: #eaeaea;
+        border-radius: 0 4px 4px 0;
+    }
+    .gh-blogbanner-item input:focus {
         position: relative;
         z-index: 100;
     }

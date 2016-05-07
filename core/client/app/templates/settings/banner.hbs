@@ -1,0 +1,19 @@
+<section class="gh-view">
+    <header class="view-header">
+        {{#gh-view-title openMobileMenu="openMobileMenu"}}<span>Navigation</span>{{/gh-view-title}}
+        <section class="view-actions">
+            {{#gh-spin-button class="btn btn-blue" action="save" submitting=submitting}}Save{{/gh-spin-button}}
+        </section>
+    </header>
+
+    <section class="view-container">
+        <form id="settings-navigation" class="gh-blognav" novalidate="novalidate">
+            {{#sortable-group onChange=(action 'reorderItems') as |group|}}
+                {{#each model.banner as |bannerItem|}}
+                    {{gh-banneritem bannerItem=bannerItem baseUrl=blogUrl addItem="addItem" deleteItem="deleteItem" updateUrl="updateUrl" group=group}}
+                {{/each}}
+            {{/sortable-group}}
+            {{gh-banneritem bannerItem=newBannerItem baseUrl=blogUrl addItem="addItem" updateUrl="updateUrl"}}
+        </form>
+    </section>
+</section>

@@ -57,6 +57,7 @@ updateConfigCache = function () {
             logo: (settingsCache.logo && settingsCache.logo.value) || '',
             cover: (settingsCache.cover && settingsCache.cover.value) || '',
             navigation: (settingsCache.navigation && JSON.parse(settingsCache.navigation.value)) || [],
+            banner: (settingsCache.banner && JSON.parse(settingsCache.banner.value)) || [],
             postsPerPage: (settingsCache.postsPerPage && settingsCache.postsPerPage.value) || 5,
             permalinks: (settingsCache.permalinks && settingsCache.permalinks.value) || '/:slug/'
         },

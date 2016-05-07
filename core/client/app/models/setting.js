@@ -20,6 +20,7 @@ export default Model.extend(ValidationEngine, {
     ghost_foot: attr('string'),
     labs: attr('string'),
     navigation: attr('navigation-settings'),
+    banner: attr('banner-settings'),
     isPrivate: attr('boolean'),
     password: attr('string')
 });

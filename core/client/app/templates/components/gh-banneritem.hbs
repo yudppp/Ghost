@@ -1,0 +1,26 @@
+{{#unless bannerItem.isNew}}
+    <span class="gh-blogbanner-grab icon-grab">
+        <span class="sr-only">Reorder</span>
+    </span>
+{{/unless}}
+
+<div class="gh-blogbanner-line">
+    {{#gh-validation-status-container tagName="span" class="gh-blogbanner-label" errors=bannerItem.errors property="label" hasValidated=bannerItem.hasValidated}}
+        {{gh-trim-focus-input focus=bannerItem.last placeholder="Label" value=bannerItem.label keyPress=(action "clearLabelErrors")}}
+        {{gh-error-message errors=bannerItem.errors property="label"}}
+    {{/gh-validation-status-container}}
+    {{#gh-validation-status-container tagName="span" class="gh-blogbanner-url" errors=bannerItem.errors property="url" hasValidated=bannerItem.hasValidated}}
+        {{gh-banneritem-url-input baseUrl=baseUrl url=bannerItem.url isNew=bannerItem.isNew change="updateUrl" clearErrors=(action "clearUrlErrors")}}
+        {{gh-error-message errors=bannerItem.errors property="url"}}
+    {{/gh-validation-status-container}}
+</div>
+
+{{#if bannerItem.isNew}}
+    <button type="button" class="gh-blogbanner-add" {{action "addItem"}}>
+        <i class="icon-add2"><span class="sr-only">Add</span></i>
+    </button>
+{{else}}
+    <button type="button" class="gh-blogbanner-delete" {{action "deleteItem" bannerItem}}>
+        <i class="icon-trash"><span class="sr-only">Delete</span></i>
+    </button>
+{{/if}}
