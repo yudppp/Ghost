@@ -23,22 +23,22 @@ banner = function (options) {
     }
 
     if (bannerData.filter(function (e) {
-        return (_.isUndefined(e.label) || _.isUndefined(e.url));
+        return (_.isUndefined(e.image) || _.isUndefined(e.url));
     }).length > 0) {
         return errors.logAndThrowError(i18n.t('warnings.helpers.banner.valuesMustBeDefined'));
     }
 
     // check for non-null string values
-    if (bannerData.filter(function (e) {
-        return ((!_.isNull(e.label) && !_.isString(e.label)) ||
-            (!_.isNull(e.url) && !_.isString(e.url)));
-    }).length > 0) {
-        return errors.logAndThrowError(i18n.t('warnings.helpers.banner.valuesMustBeString'));
-    }
-
-    function _slugify(label) {
-        return label.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
-    }
+    // if (bannerData.filter(function (e) {
+    //     return ((!_.isNull(e.label) && !_.isString(e.label)) ||
+    //         (!_.isNull(e.url) && !_.isString(e.url)));
+    // }).length > 0) {
+    //     return errors.logAndThrowError(i18n.t('warnings.helpers.banner.valuesMustBeString'));
+    // }
+    //
+    // function _slugify(label) {
+    //     return label.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
+    // }
 
     // strips trailing slashes and compares urls
     function _isCurrentUrl(href, currentUrl) {
@@ -55,8 +55,9 @@ banner = function (options) {
     output = bannerData.map(function (e) {
         var out = {};
         out.current = _isCurrentUrl(e.url, currentUrl);
-        out.label = e.label;
-        out.slug = _slugify(e.label);
+        // out.label = e.label;
+        // out.slug = _slugify(e.label);
+        out.image = e.image
         out.url = hbs.handlebars.Utils.escapeExpression(e.url);
         out.secure = self.secure;
         return out;

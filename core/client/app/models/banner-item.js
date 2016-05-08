@@ -7,21 +7,21 @@ const {
 } = Ember;
 
 export default Ember.Object.extend(ValidationEngine, {
-    label: '',
+    image: '',
     url: '',
     isNew: false,
 
     validationType: 'bannerItem',
 
-    isComplete: computed('label', 'url', function () {
-        let {label, url} = this.getProperties('label', 'url');
+    isComplete: computed('image', 'url', function () {
+        let {image, url} = this.getProperties('image', 'url');
 
-        return !isBlank(label) && !isBlank(url);
+        return !isBlank(image) && !isBlank(url);
     }),
 
-    isBlank: computed('label', 'url', function () {
-        let {label, url} = this.getProperties('label', 'url');
+    isBlank: computed('image', 'url', function () {
+        let {image, url} = this.getProperties('image', 'url');
 
-        return isBlank(label) && isBlank(url);
+        return isBlank(image) && isBlank(url);
     })
 });

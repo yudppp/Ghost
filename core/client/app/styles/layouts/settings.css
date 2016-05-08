@@ -139,13 +139,16 @@
     width: 100%;
 }
 
-.gh-blogbanner-label {
+.gh-blogbanner-image {
     flex-grow: 1;
     margin-right: 10px;
+    max-width: 320px;
 }
 
 .gh-blogbanner-url {
     flex-grow: 3;
+    /*margin: auto 0;*/
+    margin-top: 22px;
 }
 
 .gh-blogbanner-delete {

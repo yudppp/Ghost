@@ -27,16 +27,16 @@ export default Controller.extend(SettingsSaveMixin, {
     },
 
     save() {
-        let navItems = this.get('model.banner');
+        let bannerItem = this.get('model.banner');
         let newBannerItem = this.get('newBannerItem');
         let notifications = this.get('notifications');
         let validationPromises = [];
 
-        if (!newNavItem.get('isBlank')) {
+        if (!newBannerItem.get('isBlank')) {
             validationPromises.pushObject(this.send('addItem'));
         }
 
-        navItems.map((item) => {
+        bannerItem.map((item) => {
             validationPromises.pushObject(item.validate());
         });
 
@@ -49,12 +49,13 @@ export default Controller.extend(SettingsSaveMixin, {
         });
     },
 
-    addNewNavItem() {
-        let navItems = this.get('model.banner');
+    addNewBannerItem() {
+        console.log('addNewBannerItem')
+        let bannerItems = this.get('model.banner');
         let newBannerItem = this.get('newBannerItem');
 
-        newNavItem.set('isNew', false);
-        navItems.pushObject(newNavItem);
+        newBannerItem.set('isNew', false);
+        bannerItems.pushObject(newBannerItem);
         this.set('newBannerItem', BannerItem.create({isNew: true}));
     },
 
@@ -62,10 +63,12 @@ export default Controller.extend(SettingsSaveMixin, {
         addItem() {
             let newBannerItem = this.get('newBannerItem');
 
+            // TODO: add image validation
             // If the url sent through is blank (user never edited the url)
             if (newBannerItem.get('url') === '') {
                 newBannerItem.set('url', '/');
             }
+            console.log('addItem')
 
             return newBannerItem.validate().then(() => {
                 this.addNewBannerItem();

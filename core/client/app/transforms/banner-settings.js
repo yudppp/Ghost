@@ -27,10 +27,10 @@ export default Transform.extend({
 
         if (isArray(deserialized)) {
             settingsArray = deserialized.map((item) => {
-                let label = item.get('label').trim();
+                let image = item.get('image').trim();
                 let url = item.get('url').trim();
 
-                return {label, url};
+                return {image, url};
             }).compact();
         } else {
             settingsArray = [];

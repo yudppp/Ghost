@@ -68,7 +68,7 @@
             "defaultValue": "[{\"label\":\"Home\", \"url\":\"/\"}]"
         },
         "banner": {
-            "defaultValue": "[{\"label\":\"Home\", \"url\":\"/\"}]"
+            "defaultValue": "[]"
         }
     },
     "theme": {

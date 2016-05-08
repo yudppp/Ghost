@@ -5,10 +5,12 @@
 {{/unless}}
 
 <div class="gh-blogbanner-line">
-    {{#gh-validation-status-container tagName="span" class="gh-blogbanner-label" errors=bannerItem.errors property="label" hasValidated=bannerItem.hasValidated}}
-        {{gh-trim-focus-input focus=bannerItem.last placeholder="Label" value=bannerItem.label keyPress=(action "clearLabelErrors")}}
-        {{gh-error-message errors=bannerItem.errors property="label"}}
-    {{/gh-validation-status-container}}
+    {{gh-image-uploader-with-preview
+        class="gh-blogbanner-image"
+        image=bannerItem.image
+        text="Add banner image"
+        update=(action "setImage")
+        remove=(action "clearImage")}}
     {{#gh-validation-status-container tagName="span" class="gh-blogbanner-url" errors=bannerItem.errors property="url" hasValidated=bannerItem.hasValidated}}
         {{gh-banneritem-url-input baseUrl=baseUrl url=bannerItem.url isNew=bannerItem.isNew change="updateUrl" clearErrors=(action "clearUrlErrors")}}
         {{gh-error-message errors=bannerItem.errors property="url"}}

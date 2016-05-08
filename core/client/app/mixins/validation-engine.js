@@ -13,6 +13,7 @@ import ResetValidator from 'ghost/validators/reset';
 import UserValidator from 'ghost/validators/user';
 import TagSettingsValidator from 'ghost/validators/tag-settings';
 import NavItemValidator from 'ghost/validators/nav-item';
+import BannerItemValidator from 'ghost/validators/banner-item';
 import InviteUserValidator from 'ghost/validators/invite-user';
 
 const {Mixin, RSVP, isArray} = Ember;
@@ -44,6 +45,7 @@ export default Mixin.create({
         user: UserValidator,
         tag: TagSettingsValidator,
         navItem: NavItemValidator,
+        bannerItem: BannerItemValidator,
         inviteUser: InviteUserValidator
     },
 

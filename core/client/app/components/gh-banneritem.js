@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import ValidationState from 'ghost/mixins/validation-state';
 import SortableItem from 'ember-sortable/mixins/sortable-item';
+import {invokeAction} from 'ember-invoke-action';
 
 const {Component, computed, run} = Ember;
 const {alias, readOnly} = computed;
@@ -44,12 +45,19 @@ export default Component.extend(ValidationState, SortableItem, {
             this.sendAction('updateUrl', value, this.get('bannerItem'));
         },
 
-        clearLabelErrors() {
-            this.get('bannerItem.errors').remove('label');
-        },
+        // clearLabelErrors() {
+        //     this.get('bannerItem.errors').remove('label');
+        // },
 
         clearUrlErrors() {
             this.get('bannerItem.errors').remove('url');
+        },
+        setImage(image) {
+            this.set('bannerItem.image', image);
+        },
+
+        clearImage() {
+            this.set('bannerItem.image', '');
         }
     }
 });
